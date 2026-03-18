@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: dribrahim-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dribrahim_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password123
+    ports:
+      - "5433:5432"
+    volumes:
+      - dribrahim_postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d dribrahim_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  dribrahim_postgres_data:
