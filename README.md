@@ -81,7 +81,7 @@ dr-ibrahim/
         `-- gradlew.bat
 ```
 
-Note: the Spring Boot application lives in `backend/backend/`. Commands below use that path.
+Note: the Spring Boot application lives in `backend/`. Commands below use that path.
 
 ## Prerequisites
 
@@ -113,7 +113,7 @@ This starts PostgreSQL with:
 
 ### 2. Run the Backend
 
-Open a terminal in `backend/backend`:
+Open a terminal in `backend`:
 
 ```bash
 ./gradlew bootRun
@@ -228,7 +228,7 @@ docker compose up -d
 ```
 
 ```bash
-cd backend/backend
+cd backend
 ./gradlew bootRun
 ```
 

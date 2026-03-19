@@ -19,5 +19,31 @@ services:
       timeout: 5s
       retries: 5
 
+  backend:
+    build: ./backend
+    container_name: dribrahim-backend
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: dribrahim_db
+      DB_USERNAME: admin
+      DB_PASSWORD: password123
+      JWT_SECRET: ${JWT_SECRET:-dribrahim-super-secret-key-please-change-in-production-2026}
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: ./frontend
+    container_name: dribrahim-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "80:80"
+
 volumes:
   dribrahim_postgres_data:
