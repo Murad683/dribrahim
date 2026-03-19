@@ -2,9 +2,9 @@ spring:
   application:
     name: dr-ibrahim-backend
   datasource:
-    url: jdbc:postgresql://db.xrlixeqggljfgswvlqpa.supabase.co:5432/postgres
-    username: postgres
-    password: '$!R4!d$4&V_h+@B'
+    url: jdbc:postgresql://aws-1-ap-northeast-1.pooler.supabase.com:6543/postgres?sslmode=require
+    username: postgres.xrlixeqggljfgswvlqpa
+    password: "$!R4!d$4&V_h+@B"
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
