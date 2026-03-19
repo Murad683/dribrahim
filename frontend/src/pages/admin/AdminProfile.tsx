@@ -144,7 +144,7 @@ export default function AdminProfile() {
 
   if (isLoading) {
     return (
-      <GlassCard className="p-10 text-center text-sm text-slate-500">
+      <GlassCard className="p-6 text-center text-sm text-slate-500 sm:p-10">
         Loading profile...
       </GlassCard>
     );
@@ -152,7 +152,7 @@ export default function AdminProfile() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleValidSubmit, handleInvalidSubmit)} className="space-y-6">
+      <form onSubmit={form.handleSubmit(handleValidSubmit, handleInvalidSubmit)} className="space-y-4 sm:space-y-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <p className="max-w-2xl text-sm text-slate-500">
             Update the doctor profile, timeline milestones, and localized achievements shown on the public site.
@@ -163,14 +163,14 @@ export default function AdminProfile() {
               variant="outline"
               onClick={() => form.reset(profileData)}
               disabled={isSaving}
-              className="border-slate-200 bg-white/70"
+              className="min-h-11 w-full border-slate-200 bg-white/70 sm:w-auto"
             >
               Reset Draft
             </Button>
             <Button
               type="submit"
               disabled={isSaving}
-              className="bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-blue-500/30"
+              className="min-h-11 w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-blue-500/30 sm:w-auto"
             >
               {isSaving ? 'Saving...' : 'Save Profile'}
             </Button>
@@ -179,20 +179,20 @@ export default function AdminProfile() {
 
         <motion.div initial="hidden" animate="show" variants={sectionVariants}>
           <GlassCard className="p-0 overflow-hidden">
-            <div className="border-b border-white/40 px-6 py-5">
-              <h3 className="font-display text-lg font-semibold text-slate-900">Bio Editor</h3>
+            <div className="border-b border-white/40 px-4 py-4 sm:px-6 sm:py-5">
+              <h3 className="font-display text-base font-semibold text-slate-900 sm:text-lg">Bio Editor</h3>
               <p className="text-sm text-slate-500">Long-form doctor biography with localized editing tabs.</p>
             </div>
 
-            <div className="p-6">
+            <div className="p-4 sm:p-6">
               <Tabs
                 value={activeBioLanguage}
                 onValueChange={(value) => setActiveBioLanguage(value as AdminLanguage)}
                 className="w-full"
               >
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList className="grid h-auto w-full grid-cols-3 gap-1">
                   {ADMIN_LANGUAGE_TABS.map((language) => (
-                    <TabsTrigger key={language.value} value={language.value}>
+                    <TabsTrigger key={language.value} value={language.value} className="min-h-11">
                       {language.label}
                     </TabsTrigger>
                   ))}
@@ -209,7 +209,7 @@ export default function AdminProfile() {
                           <FormControl>
                             <AutoResizeTextarea
                               placeholder={`Write ${language.label} biography`}
-                              className="min-h-[220px] bg-white/80"
+                              className="min-h-[200px] w-full bg-white/80 sm:min-h-[220px]"
                               {...field}
                             />
                           </FormControl>
@@ -225,13 +225,13 @@ export default function AdminProfile() {
         </motion.div>
 
         <motion.div initial="hidden" animate="show" variants={sectionVariants}>
-          <GlassCard className="glow-border p-6">
+          <GlassCard className="glow-border p-4 sm:p-6">
             <EducationTimelineFields form={form} />
           </GlassCard>
         </motion.div>
 
         <motion.div initial="hidden" animate="show" variants={sectionVariants}>
-          <GlassCard className="p-6">
+          <GlassCard className="p-4 sm:p-6">
             <AchievementsManager form={form} />
           </GlassCard>
         </motion.div>

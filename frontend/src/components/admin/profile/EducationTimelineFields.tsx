@@ -54,7 +54,7 @@ export function EducationTimelineFields({ form }: EducationTimelineFieldsProps) 
 
   return (
     <div className="space-y-4">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <h3 className="font-display text-lg font-semibold text-slate-900">Education Timeline</h3>
           <p className="text-sm text-slate-500">Manage year markers and localized academic details.</p>
@@ -62,7 +62,7 @@ export function EducationTimelineFields({ form }: EducationTimelineFieldsProps) 
         <Button
           type="button"
           onClick={handleAdd}
-          className="bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-blue-500/30"
+          className="min-h-11 w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-blue-500/30 sm:w-auto"
         >
           <Plus className="h-4 w-4" />
           Add New Education
@@ -78,7 +78,7 @@ export function EducationTimelineFields({ form }: EducationTimelineFieldsProps) 
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -18 }}
             transition={{ duration: 0.24, ease: 'easeOut' }}
-            className="rounded-2xl border border-slate-200/80 bg-white/70 p-5 shadow-sm"
+            className="rounded-2xl border border-slate-200/80 bg-white/70 p-4 shadow-sm sm:p-5"
           >
             <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
               <div className="flex items-center gap-3">
@@ -95,7 +95,7 @@ export function EducationTimelineFields({ form }: EducationTimelineFieldsProps) 
                 variant="ghost"
                 size="sm"
                 onClick={() => handleRemove(index)}
-                className="text-red-600 hover:bg-red-50 hover:text-red-700"
+                className="min-h-11 w-full text-red-600 hover:bg-red-50 hover:text-red-700 sm:w-auto"
               >
                 <Trash2 className="h-4 w-4" />
                 Remove
@@ -107,20 +107,20 @@ export function EducationTimelineFields({ form }: EducationTimelineFieldsProps) 
                 control={form.control}
                 name={`education.${index}.year`}
                 render={({ field: yearField }) => (
-                  <FormItem>
-                    <FormLabel>Year</FormLabel>
-                    <FormControl>
-                      <Input placeholder="e.g. 2016" className="max-w-[220px] bg-white/80" {...yearField} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
+                    <FormItem>
+                      <FormLabel>Year</FormLabel>
+                      <FormControl>
+                        <Input placeholder="e.g. 2016" className="w-full bg-white/80 sm:max-w-[220px]" {...yearField} />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
               />
 
               <Tabs defaultValue="az" className="w-full">
-                <TabsList className="grid w-full grid-cols-3">
+                <TabsList className="grid h-auto w-full grid-cols-3 gap-1">
                   {ADMIN_LANGUAGE_TABS.map((language) => (
-                    <TabsTrigger key={language.value} value={language.value}>
+                    <TabsTrigger key={language.value} value={language.value} className="min-h-11">
                       {language.label}
                     </TabsTrigger>
                   ))}

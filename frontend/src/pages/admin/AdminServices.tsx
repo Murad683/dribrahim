@@ -119,7 +119,7 @@ export default function AdminServices() {
         <Button
           type="button"
           onClick={openCreateDialog}
-          className="bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-blue-500/30"
+          className="min-h-11 w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-blue-500/30 md:w-auto"
         >
           <Plus className="h-4 w-4" />
           Add Service

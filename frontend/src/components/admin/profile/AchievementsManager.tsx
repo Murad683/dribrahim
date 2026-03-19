@@ -78,9 +78,9 @@ export function AchievementsManager({ form }: AchievementsManagerProps) {
       </div>
 
       <Tabs defaultValue="az" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+        <TabsList className="grid h-auto w-full grid-cols-3 gap-1">
           {ADMIN_LANGUAGE_TABS.map((language) => (
-            <TabsTrigger key={language.value} value={language.value}>
+            <TabsTrigger key={language.value} value={language.value} className="min-h-11">
               {language.label}
             </TabsTrigger>
           ))}
@@ -91,7 +91,7 @@ export function AchievementsManager({ form }: AchievementsManagerProps) {
 
           return (
             <TabsContent key={language.value} value={language.value} className="space-y-4 pt-4">
-              <div className="flex flex-col gap-3 md:flex-row">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <Input
                   value={drafts[language.value]}
                   onChange={(event) =>
@@ -112,7 +112,7 @@ export function AchievementsManager({ form }: AchievementsManagerProps) {
                 <Button
                   type="button"
                   onClick={() => handleAddAchievement(language.value)}
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-blue-500/30"
+                  className="min-h-11 w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:from-blue-600 hover:to-blue-700 hover:shadow-blue-500/30 sm:w-auto"
                 >
                   <Plus className="h-4 w-4" />
                   Add Achievement
@@ -135,7 +135,7 @@ export function AchievementsManager({ form }: AchievementsManagerProps) {
                       <button
                         type="button"
                         onClick={() => handleRemoveAchievement(language.value, index)}
-                        className="ml-2 rounded-full text-slate-500 transition-colors hover:text-red-600"
+                        className="ml-2 rounded-full p-0.5 text-slate-500 transition-colors hover:text-red-600"
                         aria-label={`Remove ${achievement}`}
                       >
                         <X className="h-3.5 w-3.5" />
